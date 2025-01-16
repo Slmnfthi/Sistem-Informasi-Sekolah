@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil Sekolah</title>
+    <link href="../src/output.css" rel="stylesheet" />
+    <link rel="icon" type="image/png" href="../img/logo_nf.jpg">
+</head>
+<body class="bg-gray-100">
+    <!-- Header -->
+    <header class="bg-orange-600 text-white p-4 shadow-md">
+        <h1 class="text-3xl font-bold text-center">Profil Sekolah Terpadu Nurul Fikri</h1>
+    </header>
+
+    <div class="flex flex-col md:flex-row min-h-screen">
+        <!-- Sidebar -->
+        <aside class="w-64 bg-blue-600 text-white p-6 h-screen shadow-lg">
+            <h2 class="text-2xl font-bold mb-6">SEKOLAH.ID</h2>
+            <nav class="space-y-2">
+                <a href="dashboard.html" class="block py-2 px-4 rounded-lg hover:bg-blue-700 transition">Dashboard</a>
+                <a href="profil.html" class="block py-2 px-4 rounded-lg hover:bg-blue-700 transition">Profil</a>
+                <a href="pegawai.html" class="block py-2 px-4 rounded-lg hover:bg-blue-700 transition">Pegawai</a>
+                <a href="siswa.html" class="block py-2 px-4 rounded-lg hover:bg-blue-700 transition">Siswa</a>
+                <a href="kalender.html" class="block py-2 px-4 rounded-lg hover:bg-blue-700 transition">Kalender</a>
+            </nav>
+            <hr class="my-4">
+            <a href="../index.html" class="block py-2 px-4 bg-red-500 rounded-lg hover:bg-red-600 transition">Logout</a>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 p-8">
+            <section class="bg-white p-6 rounded-lg shadow-md">
+                <h2 class="text-2xl font-bold text-gray-800 mb-4">Tentang Sekolah</h2>
+                <p class="text-gray-600 leading-relaxed">
+                    Sekolah Terpadu Nurul Fikri (STNF) adalah lembaga pendidikan yang mengintegrasikan pendidikan formal dengan nilai-nilai Islam.
+                    Kami berkomitmen untuk mencetak generasi yang unggul dalam akhlak, akademik, dan keterampilan.
+                </p>
+            </section>
+
+            <section class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Visi -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Visi</h3>
+                    <p class="text-gray-600">Mencetak generasi yang unggul dalam akhlak, akademik, dan keterampilan berbasis nilai-nilai Islam.</p>
+                </div>
+                <!-- Misi -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Misi</h3>
+                    <ul class="list-disc list-inside text-gray-600">
+                        <li>Menanamkan nilai-nilai keislaman sejak dini.</li>
+                        <li>Memberikan pendidikan berkualitas di berbagai aspek.</li>
+                        <li>Melahirkan individu siap bersaing di tingkat global.</li>
+                    </ul>
+                </div>
+            </section>
+
+           <!-- Fasilitas Sekolah -->
+<section class="mt-6 bg-white p-6 rounded-lg shadow-md">
+    <h3 class="text-xl font-semibold text-gray-800 mb-4">Fasilitas Sekolah</h3>
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+        <div class="flex flex-col items-center text-center">
+            <img src="../img/perpus.png" alt="Perpustakaan" class="w-24 h-24 object-cover rounded-lg">
+            <p class="mt-2">Perpustakaan</p>
+        </div>
+        <div class="flex flex-col items-center text-center">
+            <img src="../img/auditorium.png" alt="Laboratorium" class="w-24 h-24 object-cover rounded-lg">
+            <p class="mt-2">Auditorium</p>
+        </div>
+        <div class="flex flex-col items-center text-center">
+            <img src="../img/lapangan.png" alt="Lapangan Olahraga" class="w-24 h-24 object-cover rounded-lg">
+            <p class="mt-2">Lapangan Olahraga</p>
+        </div>
+    </div>
+</section>
+
+        </main>
+    </div>
+</body>
+</html>

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalender Akademik Sekolah NF</title>
+    <link href="../src/output.css" rel="stylesheet" />
+    <link rel="icon" type="image/png" href="../img/logo_nf.jpg">
+    <style>
+        .calendar {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            grid-gap: 5px;
+            max-width: 1000px;
+            margin: 20px auto;
+            padding: 10px;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            background-color: #fff;
+        }
+
+        .calendar-header {
+            grid-column: span 7;
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            background-color: #ff9800;
+            color: white;
+            padding: 10px 0;
+            border-radius: 5px;
+        }
+
+        .calendar-day {
+            text-align: center;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-radius: 5px;
+        }
+
+        .calendar-day:hover {
+            background-color: #ffeb3b;
+            cursor: pointer;
+        }
+
+        .calendar-day.empty {
+            background-color: transparent;
+        }
+
+        .holiday {
+            background-color: #ff5722;
+            color: white;
+        }
+
+        .exam-day {
+            background-color: #2196f3;
+            color: white;
+        }
+
+        .semester {
+            background-color: #4caf50;
+            color: white;
+        }
+
+        .event {
+            background-color: #9c27b0;
+            color: white;
+        }
+
+        .legend {
+            display: flex;
+            margin: 20px 0;
+        }
+
+        .legend div {
+            margin-right: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .legend div span {
+            margin-left: 5px;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100">
+    <!-- Header -->
+    <header class="bg-orange-600 text-white p-4 shadow-md flex items-center space-x-4">
+        <h1 class="text-3xl font-bold text-center">Kalender Sekolah Terpadu Nurul Fikri</h1>
+    </header>
+
+    <div class="min-h-screen flex">
+        <!-- Sidebar -->
+        <aside class="w-64 bg-blue-600 text-white p-6 h-screen shadow-lg">
+            <h2 class="text-2xl font-bold mb-6">SEKOLAH.ID</h2>
+            <nav class="space-y-2">
+                <a href="dashboard.html" class="block py-2 px-4 rounded-lg hover:bg-blue-700 transition">Dashboard</a>
+                <a href="profil.html" class="block py-2 px-4 rounded-lg hover:bg-blue-700 transition">Profil</a>
+                <a href="pegawai.html" class="block py-2 px-4 rounded-lg hover:bg-blue-700 transition">Pegawai</a>
+                <a href="siswa.html" class="block py-2 px-4 rounded-lg hover:bg-blue-700 transition">Siswa</a>
+                <a href="kalender.html" class="block py-2 px-4 rounded-lg hover:bg-blue-700 transition">Kalender</a>
+            </nav>
+            <hr class="my-4">
+            <a href="../index.html" class="block py-2 px-4 bg-red-500 rounded-lg hover:bg-red-600 transition">Logout</a>
+        </aside>
+
+        <!-- Kalender Akademik -->
+        <main class="flex-1 p-6">
+            <h2 class="text-2xl font-bold mb-4">Kalender Akademik Sekolah NF</h2>
+            
+            <!-- Calendar Legend -->
+            <div class="legend">
+                <div><span class="w-4 h-4 bg-red-600 rounded-full"></span><span>Holiday</span></div>
+                <div><span class="w-4 h-4 bg-blue-600 rounded-full"></span><span>Ambil Rapot</span></div>
+                <div><span class="w-4 h-4 bg-green-600 rounded-full"></span><span>Ujian</span></div>
+                <div><span class="w-4 h-4 bg-purple-600 rounded-full"></span><span>Acara Sekolah</span></div>
+            </div>
+
+            <!-- January Calendar -->
+            <div class="calendar">
+                <div class="calendar-header">Januari 2025</div>
+                <div class="calendar-day">Sen</div>
+                <div class="calendar-day">Sel</div>
+                <div class="calendar-day">Rab</div>
+                <div class="calendar-day">Kam</div>
+                <div class="calendar-day">Jum</div>
+                <div class="calendar-day">Sab</div>
+                <div class="calendar-day">Min</div>
+
+                <div class="calendar-day empty"></div>
+                <div class="calendar-day">1</div>
+                <div class="calendar-day">2</div>
+                <div class="calendar-day">3</div>
+                <div class="calendar-day">4</div>
+                <div class="calendar-day holiday">5</div>
+                <div class="calendar-day holiday">6</div>
+                <div class="calendar-day semester">7</div>
+                
+
+                <div class="calendar-day semester">8</div>
+                <div class="calendar-day semester">9</div>
+                <div class="calendar-day semester">10</div>
+                <div class="calendar-day semester">11</div>
+                <div class="calendar-day holiday">12</div>
+                <div class="calendar-day holiday">13</div>
+                <div class="calendar-day event">14</div>
+                
+                <div class="calendar-day event">15</div>
+                <div class="calendar-day event">16</div>
+                <div class="calendar-day event">17</div>
+                <div class="calendar-day exam-day">18</div>
+                <div class="calendar-day exam-day">19</div>
+                <div class="calendar-day holiday">20</div>
+                <div class="calendar-day holiday">21</div>
+
+                <div class="calendar-day holiday">22</div>
+                <div class="calendar-day holiday">23</div>
+                <div class="calendar-day holiday">24</div>
+                <div class="calendar-day holiday">25</div>
+                <div class="calendar-day holiday">26</div>
+                <div class="calendar-day holiday">27</div>
+                <div class="calendar-day holiday">28</div>
+                <div class="calendar-day holiday">29</div>
+                <div class="calendar-day holiday">30</div>
+                <div class="calendar-day holiday">31</div>
+            </div>
+
+            <!-- Repeat this block for each month from February to December -->
+
+        </main>
+    </div>
+</body>
+
+</html>

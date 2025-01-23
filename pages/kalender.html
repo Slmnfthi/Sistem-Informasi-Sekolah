@@ -12,12 +12,13 @@
             display: grid;
             grid-template-columns: repeat(7, 1fr);
             grid-gap: 5px;
-            max-width: 1000px;
+            max-width: 100%;
             margin: 20px auto;
             padding: 10px;
             border: 2px solid #ccc;
             border-radius: 10px;
             background-color: #fff;
+            overflow-x: auto;
         }
 
         .calendar-header {
@@ -69,6 +70,7 @@
 
         .legend {
             display: flex;
+            flex-wrap: wrap;
             margin: 20px 0;
         }
 
@@ -81,18 +83,28 @@
         .legend div span {
             margin-left: 5px;
         }
+
+        @media (max-width: 640px) {
+            .calendar {
+                grid-template-columns: repeat(7, minmax(50px, 1fr));
+            }
+        }
     </style>
 </head>
 
 <body class="bg-gray-100">
     <!-- Header -->
-    <header class="bg-orange-600 text-white p-4 shadow-md flex items-center space-x-4">
-        <h1 class="text-3xl font-bold text-center">Kalender Sekolah Terpadu Nurul Fikri</h1>
+    <header class="bg-orange-600 text-white p-4 shadow-md flex justify-between items-center">
+        <h1 class="text-2xl sm:text-3xl font-bold">Kalender Sekolah Terpadu Nurul Fikri</h1>
+        <!-- Hamburger Menu -->
+        <button class="sm:hidden block text-white focus:outline-none" id="menu-toggle">
+            &#9776;
+        </button>
     </header>
 
-    <div class="min-h-screen flex">
+    <div class="min-h-screen flex flex-col sm:flex-row">
         <!-- Sidebar -->
-        <aside class="w-64 bg-blue-600 text-white p-6 h-screen shadow-lg">
+        <aside class="bg-blue-600 text-white p-6 sm:w-64 w-full h-auto sm:h-screen shadow-lg hidden sm:block" id="sidebar">
             <h2 class="text-2xl font-bold mb-6">SEKOLAH.ID</h2>
             <nav class="space-y-2">
                 <a href="dashboard.html" class="block py-2 px-4 rounded-lg hover:bg-blue-700 transition">Dashboard</a>
@@ -106,8 +118,8 @@
         </aside>
 
         <!-- Kalender Akademik -->
-        <main class="flex-1 p-6">
-            <h2 class="text-2xl font-bold mb-4">Kalender Akademik Sekolah NF</h2>
+        <main class="flex-1 p-4 sm:p-8">
+            <h2 class="text-2xl sm:text-3xl font-bold mb-4">Kalender Akademik Sekolah NF</h2>
             
             <!-- Calendar Legend -->
             <div class="legend">
@@ -117,59 +129,73 @@
                 <div><span class="w-4 h-4 bg-purple-600 rounded-full"></span><span>Acara Sekolah</span></div>
             </div>
 
-            <!-- January Calendar -->
-            <div class="calendar">
-                <div class="calendar-header">Januari 2025</div>
-                <div class="calendar-day">Sen</div>
-                <div class="calendar-day">Sel</div>
-                <div class="calendar-day">Rab</div>
-                <div class="calendar-day">Kam</div>
-                <div class="calendar-day">Jum</div>
-                <div class="calendar-day">Sab</div>
-                <div class="calendar-day">Min</div>
-
-                <div class="calendar-day empty"></div>
-                <div class="calendar-day">1</div>
-                <div class="calendar-day">2</div>
-                <div class="calendar-day">3</div>
-                <div class="calendar-day">4</div>
-                <div class="calendar-day holiday">5</div>
-                <div class="calendar-day holiday">6</div>
-                <div class="calendar-day semester">7</div>
-                
-
-                <div class="calendar-day semester">8</div>
-                <div class="calendar-day semester">9</div>
-                <div class="calendar-day semester">10</div>
-                <div class="calendar-day semester">11</div>
-                <div class="calendar-day holiday">12</div>
-                <div class="calendar-day holiday">13</div>
-                <div class="calendar-day event">14</div>
-                
-                <div class="calendar-day event">15</div>
-                <div class="calendar-day event">16</div>
-                <div class="calendar-day event">17</div>
-                <div class="calendar-day exam-day">18</div>
-                <div class="calendar-day exam-day">19</div>
-                <div class="calendar-day holiday">20</div>
-                <div class="calendar-day holiday">21</div>
-
-                <div class="calendar-day holiday">22</div>
-                <div class="calendar-day holiday">23</div>
-                <div class="calendar-day holiday">24</div>
-                <div class="calendar-day holiday">25</div>
-                <div class="calendar-day holiday">26</div>
-                <div class="calendar-day holiday">27</div>
-                <div class="calendar-day holiday">28</div>
-                <div class="calendar-day holiday">29</div>
-                <div class="calendar-day holiday">30</div>
-                <div class="calendar-day holiday">31</div>
-            </div>
-
-            <!-- Repeat this block for each month from February to December -->
-
+            <div id="calendar-container"></div>
         </main>
     </div>
+
+    <script>
+        function generateCalendar(month, year, events) {
+            const daysInMonth = new Date(year, month + 1, 0).getDate();
+            const firstDayIndex = new Date(year, month, 1).getDay();
+            const calendar = document.createElement('div');
+            calendar.className = 'calendar';
+
+            // Add header
+            const header = document.createElement('div');
+            header.className = 'calendar-header';
+            header.innerText = `${new Intl.DateTimeFormat('id-ID', { month: 'long' }).format(new Date(year, month))} ${year}`;
+            calendar.appendChild(header);
+
+            // Add day labels
+            ['Min', 'Sen', 'Sel', 'Rab', 'Kam', 'Jum', 'Sab'].forEach(day => {
+                const dayLabel = document.createElement('div');
+                dayLabel.className = 'calendar-day';
+                dayLabel.innerText = day;
+                calendar.appendChild(dayLabel);
+            });
+
+            // Add empty days
+            for (let i = 0; i < firstDayIndex; i++) {
+                const emptyDay = document.createElement('div');
+                emptyDay.className = 'calendar-day empty';
+                calendar.appendChild(emptyDay);
+            }
+
+            // Add days with events
+            for (let day = 1; day <= daysInMonth; day++) {
+                const dayElement = document.createElement('div');
+                dayElement.className = 'calendar-day';
+                dayElement.innerText = day;
+
+                if (events[day]) {
+                    dayElement.classList.add(events[day]);
+                }
+
+                calendar.appendChild(dayElement);
+            }
+
+            return calendar;
+        }
+
+        const events = {
+            5: 'holiday',
+            6: 'holiday',
+            7: 'semester',
+            8: 'semester',
+            14: 'event',
+            18: 'exam-day',
+            19: 'exam-day'
+        };
+
+        const calendarContainer = document.getElementById('calendar-container');
+        calendarContainer.appendChild(generateCalendar(0, 2025, events));
+
+        // Toggle Sidebar
+        document.getElementById('menu-toggle').addEventListener('click', () => {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('hidden');
+        });
+    </script>
 </body>
 
 </html>

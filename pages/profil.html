@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,15 +8,20 @@
     <link href="../src/output.css" rel="stylesheet" />
     <link rel="icon" type="image/png" href="../img/logo_nf.jpg">
 </head>
+
 <body class="bg-gray-100">
     <!-- Header -->
-    <header class="bg-orange-600 text-white p-4 shadow-md">
-        <h1 class="text-3xl font-bold text-center">Profil Sekolah Terpadu Nurul Fikri</h1>
+    <header class="bg-orange-600 text-white p-4 shadow-md flex justify-between items-center">
+        <h1 class="text-2xl sm:text-3xl font-bold">Profil Sekolah Terpadu Nurul Fikri</h1>
+        <!-- Hamburger Menu -->
+        <button class="sm:hidden block text-white focus:outline-none" id="menu-toggle">
+            &#9776;
+        </button>
     </header>
 
-    <div class="flex flex-col md:flex-row min-h-screen">
+    <div class="min-h-screen flex flex-col sm:flex-row">
         <!-- Sidebar -->
-        <aside class="w-64 bg-blue-600 text-white p-6 h-screen shadow-lg">
+        <aside class="bg-blue-600 text-white p-6 sm:w-64 w-full h-auto sm:h-screen shadow-lg hidden sm:block" id="sidebar">
             <h2 class="text-2xl font-bold mb-6">SEKOLAH.ID</h2>
             <nav class="space-y-2">
                 <a href="dashboard.html" class="block py-2 px-4 rounded-lg hover:bg-blue-700 transition">Dashboard</a>
@@ -29,7 +35,7 @@
         </aside>
 
         <!-- Main Content -->
-        <main class="flex-1 p-8">
+        <main class="flex-1 p-4 sm:p-8">
             <section class="bg-white p-6 rounded-lg shadow-md">
                 <h2 class="text-2xl font-bold text-gray-800 mb-4">Tentang Sekolah</h2>
                 <p class="text-gray-600 leading-relaxed">
@@ -55,26 +61,34 @@
                 </div>
             </section>
 
-           <!-- Fasilitas Sekolah -->
-<section class="mt-6 bg-white p-6 rounded-lg shadow-md">
-    <h3 class="text-xl font-semibold text-gray-800 mb-4">Fasilitas Sekolah</h3>
-    <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
-        <div class="flex flex-col items-center text-center">
-            <img src="../img/perpus.png" alt="Perpustakaan" class="w-24 h-24 object-cover rounded-lg">
-            <p class="mt-2">Perpustakaan</p>
-        </div>
-        <div class="flex flex-col items-center text-center">
-            <img src="../img/auditorium.png" alt="Laboratorium" class="w-24 h-24 object-cover rounded-lg">
-            <p class="mt-2">Auditorium</p>
-        </div>
-        <div class="flex flex-col items-center text-center">
-            <img src="../img/lapangan.png" alt="Lapangan Olahraga" class="w-24 h-24 object-cover rounded-lg">
-            <p class="mt-2">Lapangan Olahraga</p>
-        </div>
-    </div>
-</section>
-
+            <!-- Fasilitas Sekolah -->
+            <section class="mt-6 bg-white p-6 rounded-lg shadow-md">
+                <h3 class="text-xl font-semibold text-gray-800 mb-4">Fasilitas Sekolah</h3>
+                <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
+                    <div class="flex flex-col items-center text-center">
+                        <img src="../img/perpus.png" alt="Perpustakaan" class="w-24 h-24 object-cover rounded-lg">
+                        <p class="mt-2">Perpustakaan</p>
+                    </div>
+                    <div class="flex flex-col items-center text-center">
+                        <img src="../img/auditorium.png" alt="Laboratorium" class="w-24 h-24 object-cover rounded-lg">
+                        <p class="mt-2">Auditorium</p>
+                    </div>
+                    <div class="flex flex-col items-center text-center">
+                        <img src="../img/lapangan.png" alt="Lapangan Olahraga" class="w-24 h-24 object-cover rounded-lg">
+                        <p class="mt-2">Lapangan Olahraga</p>
+                    </div>
+                </div>
+            </section>
         </main>
     </div>
+
+    <script>
+        // Toggle Sidebar
+        document.getElementById('menu-toggle').addEventListener('click', () => {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('hidden');
+        });
+    </script>
 </body>
+
 </html>

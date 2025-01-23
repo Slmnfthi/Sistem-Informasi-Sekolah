@@ -11,13 +11,17 @@
 
 <body class="bg-gray-100">
     <!-- Header -->
-    <header class="bg-orange-600 text-white p-4 shadow-md">
-        <h1 class="text-3xl font-bold text-center">Pegawai Sekolah Terpadu Nurul Fikri</h1>
+    <header class="bg-orange-600 text-white p-4 shadow-md flex justify-between items-center">
+        <h1 class="text-2xl sm:text-3xl font-bold">Pegawai Sekolah Terpadu Nurul Fikri</h1>
+        <!-- Hamburger Menu -->
+        <button class="sm:hidden block text-white focus:outline-none" id="menu-toggle">
+            &#9776;
+        </button>
     </header>
 
-    <div class="min-h-screen flex">
+    <div class="min-h-screen flex flex-col sm:flex-row">
         <!-- Sidebar -->
-        <aside class="w-64 bg-blue-600 text-white p-6 h-screen shadow-lg">
+        <aside class="bg-blue-600 text-white p-6 sm:w-64 w-full h-auto sm:h-screen shadow-lg hidden sm:block" id="sidebar">
             <h2 class="text-2xl font-bold mb-6">SEKOLAH.ID</h2>
             <nav class="space-y-2">
                 <a href="dashboard.html" class="block py-2 px-4 rounded-lg hover:bg-blue-700 transition">Dashboard</a>
@@ -31,73 +35,80 @@
         </aside>
 
         <!-- Main content -->
-        <main class="flex-1 p-6">
+        <main class="flex-1 p-4 sm:p-8">
             <h2 class="text-2xl font-semibold mb-6">Data Pegawai</h2>
-            <div class="overflow-x-auto bg-white p-4 rounded-lg shadow-md">
-                <table class="min-w-full table-auto">
+            <div class="overflow-x-auto bg-white p-6 rounded-lg shadow-md">
+                <table class="min-w-full table-auto border-collapse border border-gray-300">
                     <thead class="bg-gray-200">
                         <tr>
-                            <th class="px-4 py-2 text-left">No</th>
-                            <th class="px-4 py-2 text-left">Nama</th>
-                            <th class="px-4 py-2 text-left">Pembelajaran</th>
-                            <th class="px-4 py-2 text-left">Status</th>
+                            <th class="px-4 py-2 border border-gray-300 text-left">No</th>
+                            <th class="px-4 py-2 border border-gray-300 text-left">Nama</th>
+                            <th class="px-4 py-2 border border-gray-300 text-left">Pembelajaran</th>
+                            <th class="px-4 py-2 border border-gray-300 text-left">Status</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td class="px-4 py-2">1</td>
-                            <td class="px-4 py-2">Dr. Sirojul Munir S.SI.,M.Kom</td>
-                            <td class="px-4 py-2">Guru Pemograma Web</td>
-                            <td class="px-4 py-2">Aktif</td>
+                        <tr class="hover:bg-gray-100">
+                            <td class="px-4 py-2 border border-gray-300">1</td>
+                            <td class="px-4 py-2 border border-gray-300">Dr. Sirojul Munir S.SI.,M.Kom</td>
+                            <td class="px-4 py-2 border border-gray-300">Guru Pemrograman Web</td>
+                            <td class="px-4 py-2 border border-gray-300">Aktif</td>
                         </tr>
-                        <tr>
-                            <td class="px-4 py-2">2</td>
-                            <td class="px-4 py-2">REZA PRIMARDIANSYAH, S.T, M.Kom</td>
-                            <td class="px-4 py-2">Guru Dasar-Dasar Pemograman</td>
-                            <td class="px-4 py-2">Aktif</td>
+                        <tr class="hover:bg-gray-100">
+                            <td class="px-4 py-2 border border-gray-300">2</td>
+                            <td class="px-4 py-2 border border-gray-300">REZA PRIMARDIANSYAH, S.T, M.Kom</td>
+                            <td class="px-4 py-2 border border-gray-300">Guru Dasar-Dasar Pemrograman</td>
+                            <td class="px-4 py-2 border border-gray-300">Aktif</td>
                         </tr>
-                        <tr>
-                            <td class="px-4 py-2">3</td>
-                            <td class="px-4 py-2">Dr. Amalia Rahmah, S.T, M.T</td>
-                            <td class="px-4 py-2">Guru Pengantar Teknologi Informasi</td>
-                            <td class="px-4 py-2">Aktif</td>
+                        <tr class="hover:bg-gray-100">
+                            <td class="px-4 py-2 border border-gray-300">3</td>
+                            <td class="px-4 py-2 border border-gray-300">Dr. Amalia Rahmah, S.T, M.T</td>
+                            <td class="px-4 py-2 border border-gray-300">Guru Pengantar Teknologi Informasi</td>
+                            <td class="px-4 py-2 border border-gray-300">Aktif</td>
                         </tr>
-                        <tr>
-                            <td class="px-4 py-2">4</td>
-                            <td class="px-4 py-2">Akhmam Fahmi, S.Mat., M.Pd</td>
-                            <td class="px-4 py-2">Guru Matematika Komputer</td>
-                            <td class="px-4 py-2">Aktif</td>
+                        <tr class="hover:bg-gray-100">
+                            <td class="px-4 py-2 border border-gray-300">4</td>
+                            <td class="px-4 py-2 border border-gray-300">Akhmam Fahmi, S.Mat., M.Pd</td>
+                            <td class="px-4 py-2 border border-gray-300">Guru Matematika Komputer</td>
+                            <td class="px-4 py-2 border border-gray-300">Aktif</td>
                         </tr>
-                        <tr>
-                            <td class="px-4 py-2">5</td>
-                            <td class="px-4 py-2">Dr. Lukman Rosyidi, S.T., M.M., M.T.</td>
-                            <td class="px-4 py-2">Guru Sistem Operasi</td>
-                            <td class="px-4 py-2">Aktif</td>
+                        <tr class="hover:bg-gray-100">
+                            <td class="px-4 py-2 border border-gray-300">5</td>
+                            <td class="px-4 py-2 border border-gray-300">Dr. Lukman Rosyidi, S.T., M.M., M.T.</td>
+                            <td class="px-4 py-2 border border-gray-300">Guru Sistem Operasi</td>
+                            <td class="px-4 py-2 border border-gray-300">Aktif</td>
                         </tr>
-                        <tr>
-                            <td class="px-4 py-2">6</td>
-                            <td class="px-4 py-2">Krisna Panji, S.Kom., M.M.</td>
-                            <td class="px-4 py-2">Guru Pendidikan Agama</td>
-                            <td class="px-4 py-2">Aktif</td>
+                        <tr class="hover:bg-gray-100">
+                            <td class="px-4 py-2 border border-gray-300">6</td>
+                            <td class="px-4 py-2 border border-gray-300">Krisna Panji, S.Kom., M.M.</td>
+                            <td class="px-4 py-2 border border-gray-300">Guru Pendidikan Agama</td>
+                            <td class="px-4 py-2 border border-gray-300">Aktif</td>
                         </tr>
-                        <tr>
-                            <td class="px-4 py-2">7</td>
-                            <td class="px-4 py-2">Rizkia Nurinayanti</td>
-                            <td class="px-4 py-2">Guru Pembentukan Karakter</td>
-                            <td class="px-4 py-2">Aktif</td>
+                        <tr class="hover:bg-gray-100">
+                            <td class="px-4 py-2 border border-gray-300">7</td>
+                            <td class="px-4 py-2 border border-gray-300">Rizkia Nurinayanti</td>
+                            <td class="px-4 py-2 border border-gray-300">Guru Pembentukan Karakter</td>
+                            <td class="px-4 py-2 border border-gray-300">Aktif</td>
                         </tr>
-                        <tr>
-                            <td class="px-4 py-2">8</td>
-                            <td class="px-4 py-2">Drs. Rusmanto, M.M</td>
-                            <td class="px-4 py-2">Guru Bahasa Indonesia</td>
-                            <td class="px-4 py-2">Aktif</td>
+                        <tr class="hover:bg-gray-100">
+                            <td class="px-4 py-2 border border-gray-300">8</td>
+                            <td class="px-4 py-2 border border-gray-300">Drs. Rusmanto, M.M</td>
+                            <td class="px-4 py-2 border border-gray-300">Guru Bahasa Indonesia</td>
+                            <td class="px-4 py-2 border border-gray-300">Aktif</td>
                         </tr>
-                        <!-- Add more rows as needed -->
                     </tbody>
                 </table>
             </div>
         </main>
     </div>
+
+    <script>
+        // Toggle Sidebar
+        document.getElementById('menu-toggle').addEventListener('click', () => {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('hidden');
+        });
+    </script>
 </body>
 
 </html>

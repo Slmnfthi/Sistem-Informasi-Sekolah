@@ -11,13 +11,17 @@
 
 <body class="bg-gray-100">
     <!-- Header -->
-    <header class="bg-orange-600 text-white p-4 shadow-md">
-        <h1 class="text-3xl font-bold text-center">Dashboard Sekolah Terpadu Nurul Fikri</h1>
+    <header class="bg-orange-600 text-white p-4 shadow-md flex justify-between items-center">
+        <h1 class="text-2xl sm:text-3xl font-bold">Dashboard Sekolah Terpadu Nurul Fikri</h1>
+        <!-- Hamburger Menu -->
+        <button class="sm:hidden block text-white focus:outline-none" id="menu-toggle">
+            &#9776;
+        </button>
     </header>
 
-    <div class="min-h-screen flex">
+    <div class="min-h-screen flex flex-col sm:flex-row">
         <!-- Sidebar -->
-        <aside class="w-64 bg-blue-600 text-white p-6 h-screen shadow-lg">
+        <aside class="bg-blue-600 text-white p-6 sm:w-64 w-full h-auto sm:h-screen shadow-lg hidden sm:block" id="sidebar">
             <h2 class="text-2xl font-bold mb-6">SEKOLAH.ID</h2>
             <nav class="space-y-2">
                 <a href="dashboard.html" class="block py-2 px-4 rounded-lg hover:bg-blue-700 transition">Dashboard</a>
@@ -31,22 +35,19 @@
         </aside>
 
         <!-- Main Content -->
-        <main class="flex-1 p-8">
-            <h2 class="text-3xl font-bold text-gray-800 mb-6">Selamat Datang di Dashboard Sekolah Terpadu Nurul Fikri!</h2>
+        <main class="flex-1 p-4 sm:p-8">
+            <h2 class="text-2xl sm:text-3xl font-bold text-gray-800 mb-6">Selamat Datang di Dashboard Sekolah Terpadu Nurul Fikri!</h2>
 
             <!-- Dashboard Statistics -->
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-                <!-- Stat Card: Total Siswa -->
                 <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
                     <h3 class="text-xl font-semibold text-blue-600 mb-4">Total Siswa</h3>
                     <p class="text-2xl font-bold">4</p>
                 </div>
-                <!-- Stat Card: Total Pegawai -->
                 <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
                     <h3 class="text-xl font-semibold text-green-600 mb-4">Total Pegawai</h3>
                     <p class="text-2xl font-bold">8</p>
                 </div>
-                <!-- Stat Card: Kelas -->
                 <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
                     <h3 class="text-xl font-semibold text-purple-600 mb-4">Total Fasilitas</h3>
                     <p class="text-2xl font-bold">7</p>
@@ -66,17 +67,14 @@
 
             <!-- Quick Access Links -->
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Link Card: Siswa -->
                 <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
                     <h3 class="text-xl font-semibold text-teal-600 mb-4">Kelola Siswa</h3>
                     <a href="siswa.html" class="text-blue-600 hover:underline">Lihat dan Kelola Siswa</a>
                 </div>
-                <!-- Link Card: Pegawai -->
                 <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
                     <h3 class="text-xl font-semibold text-teal-600 mb-4">Kelola Pegawai</h3>
                     <a href="pegawai.html" class="text-blue-600 hover:underline">Lihat dan Kelola Pegawai</a>
                 </div>
-                <!-- Link Card: Kelas -->
                 <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
                     <h3 class="text-xl font-semibold text-teal-600 mb-4">Kelola Fasilitas</h3>
                     <a href="profil.html" class="text-blue-600 hover:underline">Lihat dan Kelola Fasilitas</a>
@@ -84,6 +82,14 @@
             </div>
         </main>
     </div>
+
+    <script>
+        // Toggle Sidebar
+        document.getElementById('menu-toggle').addEventListener('click', () => {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('hidden');
+        });
+    </script>
 </body>
 
 </html>
